@@ -1,0 +1,35 @@
+service: test
+
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
+    packagePath: ./package.json
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  timeout: 350
+  stage: ${opt:stage, 'dev'}
+  region: eu-west-3
+  environment:
+
+
+plugins:
+  - serverless-webpack
+
+package:
+  exclude:
+    - node_modules/**
+    - .gitignore
+    - .git/**
+
+functions:
+  hello:
+    name: ${self:provider.stage}-hello
+    description: Test
+    handler: handler.hello
+    events:
+      - http:
+          path: hello
+          method: get
