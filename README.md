@@ -1,6 +1,6 @@
-# Serverless Hello World
+# Serverless F1
 
-A Serverless starter that adds the commons Hello World. 
+A Serverless starter that adds drivers to Airtable. 
 Part of the [Serverless Stack](http://serverless-stack.com) guide.
 
 ### Requirements
@@ -27,17 +27,11 @@ $ npm install
 To run a function on your local
 
 ``` bash
-$ serverless invoke local --function hello
+$ serverless invoke local --function f1
 ```
 
 Deploy your project
 
 ``` bash
-$ serverless deploy
-```
-
-Deploy a single function
-
-``` bash
-$ serverless deploy function --function hello
+$ serverless deploy --stage dev
 ```

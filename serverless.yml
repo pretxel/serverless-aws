@@ -13,7 +13,9 @@ provider:
   stage: ${opt:stage, 'dev'}
   region: eu-west-3
   environment:
-
+    AIRTABLE_BASE_ID: ${env:AIRTABLE_BASE_ID}
+    AIRTABLE_API_KEY: ${env:AIRTABLE_API_KEY}
+    AIRTABLE_TABLE: ${env:AIRTABLE_TABLE}
 
 plugins:
   - serverless-webpack
@@ -25,11 +27,11 @@ package:
     - .git/**
 
 functions:
-  hello:
-    name: ${self:provider.stage}-hello
+  f1:
+    name: ${self:provider.stage}-f1
     description: Test
-    handler: handler.hello
+    handler: handler.f1
     events:
       - http:
-          path: hello
+          path: f1
           method: get
